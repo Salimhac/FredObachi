@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, Cambria, serif;
+  --font-display: "Cinzel", "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  
+  --color-gold-300: #edd480;
+  --color-gold-400: #e5c158;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8972e;
+  --color-bronze-light: #a37c40;
+  --color-bronze: #8c6d3b;
+  --color-bronze-dark: #54422b;
+  --color-ivory: #fdfbf7;
+  --color-ivory-muted: #dcd6c8;
+  --color-obsidian: #0a0a0c;
+  --color-obsidian-surface: #121216;
+  --color-obsidian-border: #232228;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #0a0a0c;
+    color: #f5f2ea;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+  }
+
+  .font-monument {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2824;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Gold shimmer gradient utility */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF5D0 0%, #D4AF37 50%, #A37C40 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
+}

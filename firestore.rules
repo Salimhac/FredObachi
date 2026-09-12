@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidTribute(data) {
+      return data.keys().hasAll(['author', 'location', 'message', 'category', 'likes', 'date'])
+        && data.author is string && data.author.size() >= 2 && data.author.size() <= 80
+        && data.location is string && data.location.size() >= 2 && data.location.size() <= 100
+        && data.message is string && data.message.size() >= 5 && data.message.size() <= 1000
+        && data.category in ['radio-fan', 'rhumba-artist', 'mentee', 'dignitary']
+        && data.likes is int && data.likes >= 0;
+    }
+
+    match /tributes/{tributeId} {
+      allow read: if true;
+      allow create: if isValidTribute(request.resource.data) && request.resource.data.likes == 0;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes'])
+                    && request.resource.data.likes == resource.data.likes + 1;
+      allow delete: if false;
+    }
+
+    match /_health/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

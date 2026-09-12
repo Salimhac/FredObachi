@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Tribute": {
+      "title": "Tribute",
+      "description": "A public tribute note submitted by a fan, listener, colleague or dignitary honoring Fred Obachi Machoka.",
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "The name or title of the tribute author.",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "location": {
+          "type": "string",
+          "description": "City or country of the author (e.g. Nairobi, Kisumu, Mombasa, Diaspora).",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "message": {
+          "type": "string",
+          "description": "The heartfelt tribute or memory.",
+          "minLength": 5,
+          "maxLength": 1000
+        },
+        "epoch": {
+          "type": "string",
+          "description": "The broadcasting era or show referenced.",
+          "maxLength": 100
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the contributor.",
+          "enum": ["radio-fan", "rhumba-artist", "mentee", "dignitary"]
+        },
+        "date": {
+          "type": "string",
+          "description": "Display date string."
+        },
+        "likes": {
+          "type": "number",
+          "description": "Number of likes/appreciations."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of creation."
+        }
+      },
+      "required": ["author", "location", "message", "category", "likes"]
+    }
+  },
+  "firestore": {
+    "/tributes/{tributeId}": {
+      "schema": "Tribute",
+      "description": "Collection of public tributes celebrating 50 years of Fred Obachi Machoka."
+    }
+  }
+}
