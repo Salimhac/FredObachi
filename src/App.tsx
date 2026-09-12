@@ -63,6 +63,8 @@ export default function App() {
         {/* 5. Signature Shows */}
         <SignatureShowsSection />
 
+          <Analytics />
+
         {/* 6. Photo Gallery */}
         <GallerySection />
 
