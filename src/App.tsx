@@ -63,8 +63,6 @@ export default function App() {
         {/* 5. Signature Shows */}
         <SignatureShowsSection />
 
-          <Analytics />
-
         {/* 6. Photo Gallery */}
         <GallerySection />
 
@@ -107,6 +105,9 @@ export default function App() {
         title={activeVideo?.title}
         onClose={handleCloseVideo}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
