@@ -15,7 +15,7 @@ import { TributeWallSection } from './components/TributeWallSection';
 import { CreatorPartnerSection } from './components/CreatorPartnerSection';
 import { Footer } from './components/Footer';
 import { VideoModal } from './components/VideoModal';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   const [activeVideo, setActiveVideo] = useState<{ id: string; title: string } | null>(null);
